@@ -11,8 +11,8 @@ import {
     Typography,
     TextField,
     Paper,
-} from '@material-ui/core';
-import { Button } from '@material-ui/core';
+} from '@mui/material';
+import { Button } from '@mui/material';
 
 import ChatBubbleOutlineIcon from '@material-ui/icons/ChatBubbleOutline';
 

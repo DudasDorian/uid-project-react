@@ -3,12 +3,12 @@ import useStorage from "../hooks/useStorage";
 import {
     Box,
     Button,
-    Divider,
+    Divider, FormControlLabel,
     IconButton,
     List,
     ListItem,
     ListItemText,
-    Stack,
+    Stack, Switch,
     TextField,
     Typography
 } from "@mui/material";
@@ -44,16 +44,25 @@ function NearbyAttractions() {
         }
     }
 
+    const [onlyLocalRecommendations, setOnlyLocalRecommendations] = useState(false)
     const [localRecommendations, setLocalRecommendations] = useState([
-
+        { name: "Local Recommendation 1", description: "Description" },
+        { name: "Local Recommendation 2", description: "Description" },
+        { name: "Local Recommendation 3", description: "Description" },
     ])
 
     function NearbyAttractionsList() {
         return <Box sx={{ width: "850px", marginLeft: "50px" }}>
             <Typography variant={"h2"}>Nearby Attractions</Typography>
             <Divider />
+            <FormControlLabel control={
+                <Switch checked={onlyLocalRecommendations}
+                        onChange={(e) => setOnlyLocalRecommendations(e.target.checked)} />
+            } label={"Toggle Only Local Recommendations"} />
             <List>
-                {attractionList.map((a, index) => (
+                {(onlyLocalRecommendations ?
+                    localRecommendations :
+                    [...attractionList, ...localRecommendations]).map((a, index) => (
                     <ListItem divider key={index}>
                         <ListItemText primary={a.name} secondary={a.description} />
                     </ListItem>
