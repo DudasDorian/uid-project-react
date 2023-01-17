@@ -2,9 +2,9 @@ import React from "react";
 import {Box, Grid, List, ListItem, Stack, Typography} from "@mui/material";
 
 const mockedFlights = [
-    { name: "KH-89104U", description: "Lorem ipsum dolor sit amet.", destination: "New York", departure: "21-03-2023" },
-    { name: "JSA-7149KS", description: "Lorem ipsum dolor sit amet.", destination: "Chicago", departure: "21-03-2023" },
-    { name: "MSK-72931", description: "Lorem ipsum dolor sit amet.", destination: "Phoenix", departure: "21-03-2023" },
+    { name: "KH-89104U", description: "Lorem ipsum dolor sit amet.", flight: "Cluj-Napoca - New York", time: "21-03-2023 12:00 - 21-03-2023 21:00" },
+    { name: "JSA-7149KS", description: "Lorem ipsum dolor sit amet.", flight: "Cluj-Napoca - Chicago", time: "21-03-2023 12:00 - 21-03-2023 21:00" },
+    { name: "MSK-72931", description: "Lorem ipsum dolor sit amet.", flight: "Cluj-Napoca - Phoenix", time: "21-03-2023 12:00 - 21-03-2023 21:00" },
 ]
 
 const mockedHotels = [
@@ -41,8 +41,9 @@ function MyAccountPage() {
                     {mockedFlights.map((f, index) => (
                         <ListItem divider key={index}>
                             <Stack>
-                                <Typography variant={"h5"}>{f.destination + " - " + f.name}</Typography>
-                                <Typography variant={"subtitle1"}>{f.departure}</Typography>
+                                <Typography variant={"h5"}>{f.flight}</Typography>
+                                <Typography variant={"h6"}>{f.name}</Typography>
+                                <Typography variant={"subtitle2"}>{f.time}</Typography>
                             </Stack>
                         </ListItem>
                     ))}
