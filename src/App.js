@@ -11,12 +11,15 @@ import UserDetails from "./components/UserDetails";
 import FutureReservations from "./components/FutureReservations";
 import RoomsList from "./components/RoomsList";
 import RoomEdit from "./components/RoomEdit";
+import HotelList from "./components/HotelList";
+import HotelReservation from "./components/HotelReservation";
+import ReviewHotel from "./components/ReviewHotel";
 
 function App() {
   const { username, saveLogin } = useStorage()
 
   if(!username) {
-    //return <LoginPage setLogin={saveLogin} />
+    return <LoginPage setLogin={saveLogin} />
   }
 
   return (
@@ -39,6 +42,9 @@ function App() {
           <Route path="/past-reservations" component={PastReservations} />
           <Route path="/future-reservations" component={FutureReservations} />
           <Route path="/rooms" component={RoomsList} />
+          <Route path="/reserve-hotel" component={HotelReservation} />
+          <Route path="/review-hotel" component={ReviewHotel} />
+          <Route path="/hotels" component={HotelList} />
           <Route path="/user-details/:userId" >
               <UserDetails userId={1}/>
           </Route>
