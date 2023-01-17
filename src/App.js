@@ -1,24 +1,30 @@
 import logo from './logo.svg';
 import './App.css';
+import useStorage from "./hooks/useStorage";
+import LoginPage from "./components/LoginPage";
+import {BrowserRouter, Route, Switch} from "react-router-dom";
+import {Button} from "@mui/material";
 
 function App() {
+  const { username, saveLogin } = useStorage()
+
+  if(!username) {
+    return <LoginPage setLogin={saveLogin} />
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Button onClick={() => {
+        window.location.replace('http://localhost:3000/');
+        sessionStorage.clear();
+      }}>Back to login page</Button>
+
+      <Switch>
+        <Route path={'/nearby-'}>
+          <div />
+        </Route>
+      </Switch>
+    </BrowserRouter>
   );
 }
 
