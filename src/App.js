@@ -4,12 +4,19 @@ import useStorage from "./hooks/useStorage";
 import LoginPage from "./components/LoginPage";
 import {BrowserRouter, Route, Switch} from "react-router-dom";
 import {Button} from "@mui/material";
+import ReviewUsers from "./components/ReviewUsers";
+import HotelDetails from "./components/HotelDetails";
+import PastReservations from "./components/PastReservations";
+import UserDetails from "./components/UserDetails";
+import FutureReservations from "./components/FutureReservations";
+import RoomsList from "./components/RoomsList";
+import RoomEdit from "./components/RoomEdit";
 
 function App() {
   const { username, saveLogin } = useStorage()
 
   if(!username) {
-    return <LoginPage setLogin={saveLogin} />
+    //return <LoginPage setLogin={saveLogin} />
   }
 
   return (
@@ -23,6 +30,21 @@ function App() {
         <Route path={'/nearby-'}>
           <div />
         </Route>
+          <Route path={'/review-users'}>
+              <ReviewUsers />
+          </Route>
+          <Route path={'/hotel-details'}>
+              <HotelDetails hotel={{name: 'Grand Hotel', address: '123 Main St'}} />
+          </Route>
+          <Route path="/past-reservations" component={PastReservations} />
+          <Route path="/future-reservations" component={FutureReservations} />
+          <Route path="/rooms" component={RoomsList} />
+          <Route path="/user-details/:userId" >
+              <UserDetails userId={1}/>
+          </Route>
+          <Route path="/edit-room/:roomId" >
+              <RoomEdit roomId={1}/>
+          </Route>
       </Switch>
     </BrowserRouter>
   );
