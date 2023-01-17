@@ -2,11 +2,11 @@ import React, {useState} from "react";
 import {Box, Button, Divider, List, ListItem, ListItemText, TextField, Typography} from "@mui/material";
 
 const mockedFlights = [
-    { name: "KH-89104U", description: "Lorem ipsum dolor sit amet.", destination: "New York" },
-    { name: "JSA-7149KS", description: "Lorem ipsum dolor sit amet.", destination: "Chicago" },
-    { name: "PRL-1NUW82", description: "Lorem ipsum dolor sit amet.", destination: "Philadelphia" },
-    { name: "OS-093MMC", description: "Lorem ipsum dolor sit amet.", destination: "Houston" },
-    { name: "MSK-72931", description: "Lorem ipsum dolor sit amet.", destination: "Phoenix" },
+    { name: "KH-89104U", description: "Lorem ipsum dolor sit amet.", destination: "New York", departure: "21-03-2023" },
+    { name: "JSA-7149KS", description: "Lorem ipsum dolor sit amet.", destination: "Chicago", departure: "21-03-2023" },
+    { name: "PRL-1NUW82", description: "Lorem ipsum dolor sit amet.", destination: "Philadelphia", departure: "21-03-2023" },
+    { name: "OS-093MMC", description: "Lorem ipsum dolor sit amet.", destination: "Houston", departure: "21-03-2023" },
+    { name: "MSK-72931", description: "Lorem ipsum dolor sit amet.", destination: "Phoenix", departure: "21-03-2023" },
 ]
 
 function FlightsPage() {
@@ -30,7 +30,7 @@ function FlightsPage() {
         />
         <List>
             <ListItem divider>
-                <ListItemText sx={{ width: "150px", color: "gray" }} primary={"Name"} />
+                <ListItemText sx={{ width: "150px", color: "gray" }} primary={"Flight"} />
                 <ListItemText sx={{ color: "gray" }} primary={"Destination"} />
             </ListItem>
             {flightsList.map((f, index) => (
@@ -40,7 +40,7 @@ function FlightsPage() {
                     </Button>
                 }>
                     <ListItemText primary={f.name} secondary={f.description} />
-                    <ListItemText primary={f.destination} />
+                    <ListItemText primary={f.destination} secondary={f.departure} />
                 </ListItem>
             ))}
         </List>

@@ -26,7 +26,9 @@ function NearbyAttractions() {
     ])
 
     const [state, setState] = useState("Initial");
-    const [suggestions, setSuggestions] = useState([]);
+    const [suggestions, setSuggestions] = useState([
+        { name: "Suggestion 1", description: "Description" },
+    ]);
 
     const [openDialog, setOpenDialog] = useState("");
 
@@ -41,6 +43,10 @@ function NearbyAttractions() {
             setSuggestions(suggestions.filter((s) => s !== suggestion))
         }
     }
+
+    const [localRecommendations, setLocalRecommendations] = useState([
+
+    ])
 
     function NearbyAttractionsList() {
         return <Box sx={{ width: "850px", marginLeft: "50px" }}>
