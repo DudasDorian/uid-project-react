@@ -45,7 +45,7 @@ function NearbyAttractions() {
     }
 
     const [onlyLocalRecommendations, setOnlyLocalRecommendations] = useState(false)
-    const [localRecommendations, setLocalRecommendations] = useState([
+    const [localRecommendations] = useState([
         { name: "Local Recommendation 1", description: "Description" },
         { name: "Local Recommendation 2", description: "Description" },
         { name: "Local Recommendation 3", description: "Description" },
@@ -58,7 +58,7 @@ function NearbyAttractions() {
             <FormControlLabel control={
                 <Switch checked={onlyLocalRecommendations}
                         onChange={(e) => setOnlyLocalRecommendations(e.target.checked)} />
-            } label={"Toggle Only Local Recommendations"} />
+            } label={"See Only Local Recommendations"} />
             <List>
                 {(onlyLocalRecommendations ?
                     localRecommendations :

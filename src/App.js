@@ -2,7 +2,6 @@ import './App.css';
 import useStorage from "./hooks/useStorage";
 import LoginPage from "./components/LoginPage";
 import {BrowserRouter, Route, Switch} from "react-router-dom";
-import {Button} from "@mui/material";
 import ReviewUsers from "./components/ReviewUsers";
 import HotelDetails from "./components/HotelDetails";
 import PastReservations from "./components/PastReservations";
@@ -21,6 +20,7 @@ import NavBar from "./components/NavBar";
 import LocalGuides from "./components/LocalGuides";
 import FlightsPage from "./components/FlightsPage";
 import Home from "./components/Home";
+import MyAccountPage from "./components/MyAccountPage";
 
 function App() {
   const { username, saveLogin } = useStorage()
@@ -49,7 +49,6 @@ function App() {
           <Route path="/reserve-restaurant" component={RestaurantReservation} />
           <Route path="/review-restaurant" component={RestaurantReview} />
           <Route path="/local-guides" component={LocalGuides} />
-          <Route path="/" component={Home} />
           <Route path="/user-details/:userId" >
               <UserDetails userId={1}/>
           </Route>
@@ -62,6 +61,10 @@ function App() {
           <Route path="/flights" >
               <FlightsPage />
           </Route>
+          <Route path="/my-account" >
+              <MyAccountPage />
+          </Route>
+          <Route path="/" component={Home} />
       </Switch>
     </BrowserRouter>
   );
