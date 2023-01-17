@@ -18,6 +18,7 @@ import RestaurantReservation from "./components/RestaurantReservation";
 import RestaurantReview from "./components/RestaurantReview";
 import NearbyAttractions from "./components/NearbyAttractions";
 import NavBar from "./components/NavBar";
+import LocalGuides from "./components/LocalGuides";
 
 function App() {
   const { username, saveLogin } = useStorage()
@@ -45,6 +46,7 @@ function App() {
           <Route path="/restaurants" component={RestaurantList} />
           <Route path="/reserve-restaurant" component={RestaurantReservation} />
           <Route path="/review-restaurant" component={RestaurantReview} />
+          <Route path="/local-guides" component={LocalGuides} />
           <Route path="/user-details/:userId" >
               <UserDetails userId={1}/>
           </Route>
