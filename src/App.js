@@ -19,6 +19,7 @@ import RestaurantReview from "./components/RestaurantReview";
 import NearbyAttractions from "./components/NearbyAttractions";
 import NavBar from "./components/NavBar";
 import LocalGuides from "./components/LocalGuides";
+import FlightsPage from "./components/FlightsPage";
 
 function App() {
   const { username, saveLogin } = useStorage()
@@ -55,6 +56,9 @@ function App() {
           </Route>
           <Route path="/nearby-attractions" >
               <NearbyAttractions />
+          </Route>
+          <Route path="/flights" >
+              <FlightsPage />
           </Route>
       </Switch>
     </BrowserRouter>
