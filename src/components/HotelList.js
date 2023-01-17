@@ -2,20 +2,16 @@ import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import {
     List,
-    ListItem,
-    ListItemText,
-    ListItemSecondaryAction,
     Typography,
     IconButton,
     TextField,
     Card,
     CardContent,
     CardActions,
-} from '@material-ui/core';
+} from '@mui/material';
 import { Edit, Hotel, RateReview } from '@material-ui/icons';
 import { useHistory } from 'react-router-dom';
 import useStorage from "../hooks/useStorage";
-import HotelDetails from "./HotelDetails";
 
 const useStyles = makeStyles({
     root: {
@@ -65,12 +61,14 @@ const HotelList = () => {
         <>
             <TextField
                 className={classes.root}
+                variant="standard"
                 label="Search by Hotel Name"
                 value={searchName}
                 onChange={handleSearchName}
             />
             <TextField
                 className={classes.root}
+                variant="standard"
                 label="Search by Price"
                 value={searchPrice}
                 onChange={handleSearchPrice}

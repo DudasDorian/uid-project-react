@@ -13,6 +13,7 @@ import {
     Typography
 } from "@mui/material";
 import ConfirmationDialog from "./DialogComponent";
+import {Edit} from "@material-ui/icons";
 
 function NearbyAttractions() {
     const { role } = useStorage()
@@ -88,8 +89,7 @@ function NearbyAttractions() {
                 {suggestions.map((s, index) => (
                     <ListItem divider key={index} secondaryAction={
                         <IconButton edge="end" onClick={() => setOpenDialog(s.name)}>
-                        {/*  TODO: Add <Edit /> icon  */}
-                            Edit
+                            <Edit />
                         </IconButton>
                     }>
                         <ListItemText primary={s.name} secondary={s.description} />

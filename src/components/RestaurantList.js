@@ -7,7 +7,7 @@ import {
     CardContent,
     Typography,
     IconButton,
-} from '@material-ui/core';
+} from '@mui/material';
 import { useHistory } from 'react-router-dom';
 import { Restaurant, RateReview } from '@material-ui/icons';
 
@@ -77,12 +77,14 @@ const RestaurantList = () => {
         <div>
             <TextField
                 className={classes.root}
+                variant="standard"
                 label="Search by Food Type"
                 value={searchFoodType}
                 onChange={event => setSearchFoodType(event.target.value)}
             />
             <TextField
                 className={classes.root}
+                variant="standard"
                 label="Search by Name"
                 value={searchName}
                 onChange={event => setSearchName(event.target.value)}
