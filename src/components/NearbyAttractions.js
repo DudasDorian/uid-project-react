@@ -13,7 +13,7 @@ import {
     Typography
 } from "@mui/material";
 import ConfirmationDialog from "./DialogComponent";
-import {Edit} from "@material-ui/icons";
+import {AddCircle, Edit} from "@material-ui/icons";
 
 function NearbyAttractions() {
     const { role } = useStorage()
@@ -63,7 +63,11 @@ function NearbyAttractions() {
                 {(onlyLocalRecommendations ?
                     localRecommendations :
                     [...attractionList, ...localRecommendations]).map((a, index) => (
-                    <ListItem divider key={index}>
+                    <ListItem divider key={index} secondaryAction={
+                        <IconButton edge="end">
+                            <AddCircle />
+                        </IconButton>
+                    }>
                         <ListItemText primary={a.name} secondary={a.description} />
                     </ListItem>
                 ))}
