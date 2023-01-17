@@ -14,6 +14,9 @@ import RoomEdit from "./components/RoomEdit";
 import HotelList from "./components/HotelList";
 import HotelReservation from "./components/HotelReservation";
 import ReviewHotel from "./components/ReviewHotel";
+import RestaurantList from "./components/RestaurantList";
+import RestaurantReservation from "./components/RestaurantReservation";
+import RestaurantReview from "./components/RestaurantReview";
 
 function App() {
   const { username, saveLogin } = useStorage()
@@ -45,6 +48,9 @@ function App() {
           <Route path="/reserve-hotel" component={HotelReservation} />
           <Route path="/review-hotel" component={ReviewHotel} />
           <Route path="/hotels" component={HotelList} />
+          <Route path="/restaurants" component={RestaurantList} />
+          <Route path="/reserve-restaurant" component={RestaurantReservation} />
+          <Route path="/review-restaurant" component={RestaurantReview} />
           <Route path="/user-details/:userId" >
               <UserDetails userId={1}/>
           </Route>
