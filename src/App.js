@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import useStorage from "./hooks/useStorage";
 import LoginPage from "./components/LoginPage";
@@ -17,6 +16,8 @@ import ReviewHotel from "./components/ReviewHotel";
 import RestaurantList from "./components/RestaurantList";
 import RestaurantReservation from "./components/RestaurantReservation";
 import RestaurantReview from "./components/RestaurantReview";
+import NearbyAttractions from "./components/NearbyAttractions";
+import NavBar from "./components/NavBar";
 
 function App() {
   const { username, saveLogin } = useStorage()
@@ -27,15 +28,8 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Button onClick={() => {
-        window.location.replace('http://localhost:3000/');
-        sessionStorage.clear();
-      }}>Back to login page</Button>
-
+        <NavBar />
       <Switch>
-        <Route path={'/nearby-'}>
-          <div />
-        </Route>
           <Route path={'/review-users'}>
               <ReviewUsers />
           </Route>
@@ -56,6 +50,9 @@ function App() {
           </Route>
           <Route path="/edit-room/:roomId" >
               <RoomEdit roomId={1}/>
+          </Route>
+          <Route path="/nearby-attractions" >
+              <NearbyAttractions />
           </Route>
       </Switch>
     </BrowserRouter>
